@@ -1,5 +1,6 @@
 <?php
 
+// namespace App\Models;
 class Jeu 
 {
     public function __construct(

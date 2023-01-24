@@ -1,5 +1,6 @@
 <?php
 
+// namespace App\Models;
 class JeuBateau 
 {
     public function __construct(
@@ -11,27 +12,29 @@ class JeuBateau
 
     public function getDisplayInfo(): string
     {
-        $info = '';
-        if ($this->a_un_capitaine) {
-            $info .= 'Le capitaine est là. ';
-        } else {
-            $info .= 'Le capitaine n\'est pas là. ';
-        }
-        if ($this->a_un_equipage) {
-            $info .= 'L\'équipage est là. ';
-        } else {
-            $info .= 'L\'équipage n\'est pas là. ';
-        }
-        if ($this->a_un_bateau) {
-            $info .= 'Le bateau est là. ';
-        } else {
-            $info .= 'Le bateau n\'est pas là. ';
-        }
-        if ($this->equipage_complet) {
-            $info .= 'L\'équipage est complet. ';
-        } else {
-            $info .= 'L\'équipage n\'est pas complet. ';
-        }
-        return $info;
+        // $info = '';
+        // if ($this->a_un_capitaine) {
+        //     $info .= 'Le capitaine est là. ';
+        // } else {
+        //     $info .= 'Le capitaine n\'est pas là. ';
+        // }
+        // if ($this->a_un_equipage) {
+        //     $info .= 'L\'équipage est là. ';
+        // } else {
+        //     $info .= 'L\'équipage n\'est pas là. ';
+        // }
+        // if ($this->a_un_bateau) {
+        //     $info .= 'Le bateau est là. ';
+        // } else {
+        //     $info .= 'Le bateau n\'est pas là. ';
+        // }
+        // if ($this->equipage_complet) {
+        //     $info .= 'L\'équipage est complet. ';
+        // } else {
+        //     $info .= 'L\'équipage n\'est pas complet. ';
+        // }
+        // return $info;
+
+        return "Il te manque beaucoup";
     }
 }

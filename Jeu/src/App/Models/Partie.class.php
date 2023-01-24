@@ -1,5 +1,6 @@
 <?php
 
+
 class Partie 
 {
     public function __construct(
@@ -8,24 +9,17 @@ class Partie
         public ?string $gagner = null,
     ){}
 
-    public function getDisplayInfo(): string
+    public function getDisplayDate(): string
     {
-        $info = '';
-        if ($this->dateTime) {
-            $info .= 'La date et l\'heure de la partie est : ' . $this->dateTime . '. ';
-        } else {
-            $info .= 'La date et l\'heure de la partie n\'est pas définie. ';
-        }
-        if ($this->score) {
-            $info .= 'Le score de la partie est : ' . $this->score . '. ';
-        } else {
-            $info .= 'Le score de la partie n\'est pas défini. ';
-        }
-        if ($this->gagner) {
-            $info .= 'La partie est gagnée. ';
-        } else {
-            $info .= 'La partie n\'est pas gagnée. ';
-        }
-        return $info;
+        $timestamp = time();
+        $this->dateTime = date('Y-m-d H:i:s', $timestamp);
+        
+
+        return $this->dateTime;
+    }
+
+    public function __toString()
+    {
+        return $this->getDisplayDate();
     }
 }
