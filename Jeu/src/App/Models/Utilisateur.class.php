@@ -1,17 +1,43 @@
 <?php
 
+namespace App\Models;
+
 abstract class Utilisateur 
 {
     public function __construct(
-        public ?int $id = null,
-        public ?string $login = null,
-        public ?string $mdp = null,
-        public ?string $droit = null,
+        protected ?int $id = null,
+        protected ?string $login = null,
+        protected ?string $mdp = null,
+        protected ?string $droit = null,
     ){}
 
-    public abstract function inscription(): void;
+    public function __get($name)
+    {
+        return match($name){
+            "id" => $this->id,
+            "login" => $this -> login,
+            "mdp" => "******",
+            "droit" => $this -> droit,
+            default => null
+        };
+        
+    }
 
-    public abstract function connexion(): bool;
+    public function __set($name, $value)
+    {
+        return match ($name){
+            "id" => $this->id = $value,
+            "login"=> $this->login = $value,
+            "mdp" => $this ->mdp = password_hash($value, PASSWORD_BCRYPT),
+            "droit" => $this -> droit = $value,
+            default => $this->$name = $value
 
-    public abstract function deconnexion(): bool;
+        };
+    }
+
+    abstract public function inscription(): bool;
+
+    abstract public function connexion(): bool;
+
+    abstract public function deconnexion(): bool;
 }

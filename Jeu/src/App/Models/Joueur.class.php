@@ -1,45 +1,50 @@
 <?php
 
-require_once 'Utilisateur.class.php';
+namespace App\Models;
 
 class Joueur extends Utilisateur
 {
+    protected ?array $list_partie = array();
     public function __construct(
-         ?int $id = null,
-         ?string $login = null,
-         ?string $mdp = null,
-         ?string $droit = null,
+         int $id,
+         string $login,
+         string $mdp,
+         string $droit,
+         
     ){
         parent::__construct($id, $login, $mdp, $droit);
+        $this->list_partie = array();
+
     }
 
-    public function inscription(): void
+    public function inscription(): bool
     {
-        echo $this->login . ' s\'est inscrit.<br>';
+        $this->login . ' s\'est inscrit.<br>';
+        return TRUE;
     }
 
     public function displayInfo(): void
     {
-        echo $this->id;
-        echo $this->login;
-        echo $this->mdp;
-        echo $this->droit;
+        $this->id;
+        $this->login;
+        $this->mdp;
+        $this->droit;
     }
 
     public function connexion(): bool
     {
-        echo $this->login . ' s\'est connecté. Le jeu commence <br>';
+        $this->login . ' s\'est connecté. Le jeu commence <br>';
         return true;
     }
 
     public function deconnexion(): bool
     {
-        echo $this->login . ' s\'est déconnecté';
+        $this->login . ' s\'est déconnecté';
         return false;
     }
 
     public function lancerPartie(): void
     {
-        echo $this->login . ' lance les dés<br>';
+        $this->login . ' lance les dés<br>';
     }
 }

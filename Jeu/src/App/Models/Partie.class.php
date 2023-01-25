@@ -1,13 +1,42 @@
 <?php
 
+namespace App\Models;
 
 class Partie 
 {
+    use Jeu;
+    use Joueur;
+
     public function __construct(
-        public ?string $dateTime = null,
-        public ?int $score = null,
-        public ?string $gagner = null,
+        protected $dateTime,
+        protected $score,
+        protected $gagner,
+        protected Jeu $jeu,
+        protected Joueur $joueur
+        
     ){}
+
+    public function _get($name){
+        return match($name){
+            "dateTime"=> $this->dateTime,
+            "score" => $this->score,
+            "gagner" => $this->gagner,
+            "jeu"=>$this->jeu,
+            "joueur" =>$this->joueur
+        };
+    }
+
+    public function _set($name, $value){
+        return match($name){
+            "dateTime" => $this->dateTime = $value,
+            "score"=>$this->score = $value,
+            "gagner"=>$this->gagner = $value,
+            "jeu"=>$this->jeu = $value,
+            "joueur" =>$this->joueur = $value,
+            default =>$this->$name=$value
+
+        };
+    }
 
     public function getDisplayDate(): string
     {
