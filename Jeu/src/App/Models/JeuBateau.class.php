@@ -14,13 +14,13 @@ class JeuBateau extends JeuDeDes
     public const NB_LANCER_BATEAU = 3;
 
     public function __construct(
-        protected ?bool $a_un_capitaine = null,
-        protected ?bool $a_un_equipage = null,
-        protected ?bool $a_un_bateau = null,
-        protected ?bool $equipage_complet = null,
+        protected bool $a_un_capitaine = FALSE,
+        protected bool $a_un_equipage = False,
+        protected bool $a_un_bateau = False,
+        protected bool $equipage_complet = False,
         
     ){
-        parent::__construct(self::NB_DES_BATEAU,self::NB_LANCER_BATEAU);
+        parent::__construct(self::NB_DES_BATEAU, self::NB_LANCER_BATEAU);
     }
 
     public function _get($name){
@@ -43,36 +43,40 @@ class JeuBateau extends JeuDeDes
         };
     }
 
+    public function traitementDe($De){
+        $De = [1,2,3,4,5,6];
+        switch($De){
+            case 6:
+                echo self::VALEUR_CAPITAINE;
+                break;
+            case 5:
+                echo self::VALEUR_EQUIPAGE;
+                break;
+            case 4:
+                echo self::VALEUR_DE_BATEAU;
+                break;
+            case 3:
+                echo 3;
+                break;
+            case 2:
+                echo 2;
+                break;
+            case 1:
+                echo 1;
+                break; 
+            default:
+                echo "Erreur";
+                break;
+
+        }
+        return $De;
+    }
+
+
     public function traitementLancer()
     {
         $this->nb_Des--;
     }
-
-    public function getDisplayInfo(): string
-    {
-        $info = '';
-        if ($this->a_un_capitaine) {
-            $info .= 'Le capitaine est là. ';
-        } else {
-            $info .= 'Le capitaine n\'est pas là. ';
-        }
-        if ($this->a_un_equipage) {
-            $info .= 'L\'équipage est là. ';
-        } else {
-            $info .= 'L\'équipage n\'est pas là. ';
-        }
-        if ($this->a_un_bateau) {
-            $info .= 'Le bateau est là. ';
-        } else {
-            $info .= 'Le bateau n\'est pas là. ';
-        }
-        if ($this->equipage_complet) {
-            $info .= 'L\'équipage est complet. ';
-        } else {
-            $info .= 'L\'équipage n\'est pas complet. ';
-        }
-        return $info;
-
-    }
+   
 
 }

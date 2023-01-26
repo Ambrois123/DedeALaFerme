@@ -7,6 +7,7 @@ abstract class JeuDeDes extends Jeu
     public function __construct(
         protected ?int $nb_Des = 5,
         protected ?int $nb_Lancer_Des = 3,
+        protected ?int $De = null,
         protected ?array $tabDeParLancer = null,
         protected ?array $jet_de_des = null,
     ){}
@@ -17,6 +18,7 @@ abstract class JeuDeDes extends Jeu
             "nb_Lancer_Des"=>$this->nb_Lancer_Des,
             "tabDeParLancer"=>$this->tabDeParLancer,
             "jet_de_des"=>$this->jet_de_des,
+            "De"=>$this->De,
             default =>null,
         };
     }
@@ -27,6 +29,7 @@ abstract class JeuDeDes extends Jeu
             "nb_Lancer_Des"=>$this->nb_Lancer_Des = $value,
             "tabDeParLancer"=>$this->tabDeParLancer = $value,
             "jet_de_des"=>$this->jet_de_des = $value,
+            "De"=>$this->De = $value,
             default=>$this->$name=$value,
         };
     }
@@ -42,18 +45,43 @@ abstract class JeuDeDes extends Jeu
         return $str;
     }
 
+    abstract protected function traitementDe($De);
+
     abstract protected function traitementLancer();
 
     public function lancerDes()
     {
-        $array_Une_Lance =[];
-        for ($i=0; $i < $this->nb_Des; $i++) { 
-            $array_Une_Lance [] = rand(1, 6);
-        };
-        echo "<pre>";
-        print_r ($array_Une_Lance);
-        echo "</pre>";
+        // $this->traitementDe($this->De);
+
+        $De = rand(1,6);
+
+        echo $De;
+        // $De = [1,2,3,4,5,6];
+        // echo $De[array_rand($De, 1)];
+
+        // $array_Une_Lance =[];
+        // $stock= 0;
+        // for ($i=0; $i < $this->nb_Des; $i++) { 
+        //     $array_Une_Lance [] = rand(1, 6);
+        //     If ($array_Une_Lance[$i] !== 6){
+        //         echo "Il vous reste 2 lancées.";
+        //         // $stock = $stock + ($array_Une_Lance[$i]-1);
+        //         // unset($array_Une_Lance[$i]);
+        //     }else{
+        //         echo "Vous avez fait un CAPITAINE";
+        //         // $stock = $stock + ($array_Une_Lance[$i]-1);
+        //         // unset($array_Une_Lance[$i]);
+        //     }
+        // };
+        // echo "<pre>";
+        // print_r ($array_Une_Lance);
+        // echo "</pre>";
+        // echo $stock;
+
         
+    //     $Dé = [1,2,3,4,5,6];
+    //     shuffle($Dé);
+    //    echo $result = $Dé[1];  
     }
 
 

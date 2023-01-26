@@ -7,3 +7,4 @@ require ("autoload.php");
 $jeuBateau = new JeuBateau();
 
 $jeuBateau->jouerTour();
+
