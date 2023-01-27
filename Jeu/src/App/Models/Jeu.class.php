@@ -4,7 +4,7 @@ namespace App\Models;
 
 abstract class Jeu 
 {
-    protected ?array $list_parties = array();
+    private ?array $list_parties = array();
     public function __construct(
         private ?string $regles = null,
     ){    }

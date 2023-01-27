@@ -6,10 +6,10 @@ abstract class JeuDeDes extends Jeu
 {
     public function __construct(
         protected ?int $nb_Des = 5,
-        protected ?int $nb_Lancer_Des = 3,
-        protected ?int $De = null,
-        protected ?array $tabDeParLancer = null,
-        protected ?array $jet_de_des = null,
+        private ?int $nb_Lancer_Des = 3,
+        private ?int $De = null,
+        private ?array $tabDeParLancer = null,
+        private ?array $jet_de_des = null,
     ){}
 
     public function _get($name){

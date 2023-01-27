@@ -5,10 +5,10 @@ namespace App\Models;
 abstract class Utilisateur 
 {
     public function __construct(
-        protected ?int $id = null,
-        protected ?string $login = null,
-        protected ?string $mdp = null,
-        protected ?string $droit = null,
+        private ?int $id = null,
+        private ?string $login = null,
+        private ?string $mdp = null,
+        private ?string $droit = null,
     ){}
 
     public function __get($name)

@@ -14,10 +14,10 @@ class JeuBateau extends JeuDeDes
     public const NB_LANCER_BATEAU = 3;
 
     public function __construct(
-        protected bool $a_un_capitaine = FALSE,
-        protected bool $a_un_equipage = False,
-        protected bool $a_un_bateau = False,
-        protected bool $equipage_complet = False,
+        private bool $a_un_capitaine = FALSE,
+        private bool $a_un_equipage = False,
+        private bool $a_un_bateau = False,
+        private bool $equipage_complet = False,
         
     ){
         parent::__construct(self::NB_DES_BATEAU, self::NB_LANCER_BATEAU);

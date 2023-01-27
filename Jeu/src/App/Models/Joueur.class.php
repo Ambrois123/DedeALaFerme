@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Joueur extends Utilisateur
 {
-    protected ?array $list_partie = array();
+    private ?array $list_partie = array();
     public function __construct(
          int $id,
          string $login,

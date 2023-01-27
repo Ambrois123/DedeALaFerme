@@ -8,11 +8,11 @@ class Partie
     use Joueur;
 
     public function __construct(
-        protected $dateTime,
-        protected $score,
-        protected $gagner,
-        protected Jeu $jeu,
-        protected Joueur $joueur
+        private $dateTime,
+        private $score,
+        private $gagner,
+        private Jeu $jeu,
+        private Joueur $joueur
         
     ){}
 
