@@ -53,35 +53,26 @@ abstract class JeuDeDes extends Jeu
     {
         // $this->traitementDe($this->De);
 
-        $De = rand(1,6);
 
-        echo $De;
-        // $De = [1,2,3,4,5,6];
-        // echo $De[array_rand($De, 1)];
+        $array_Une_Lance =[];
+        $stock= 0;
+        for ($i=0; $i < $this->nb_Des; $i++) { 
+            $array_Une_Lance [] = rand(1, 6);
+            If ($array_Une_Lance[$i] !== 6){
+                // echo "Il vous reste 2 lancées.";
+                // $stock = $stock + ($array_Une_Lance[$i]-1);
+                // unset($array_Une_Lance[$i]);
+            }else{
+                // echo "Vous avez fait un CAPITAINE";
+                // $stock = $stock + ($array_Une_Lance[$i]-1);
+                // unset($array_Une_Lance[$i]);
+            }
+        };
+        echo "<pre>";
+        print_r ($array_Une_Lance);
+        echo "</pre>";
+        echo $stock;
 
-        // $array_Une_Lance =[];
-        // $stock= 0;
-        // for ($i=0; $i < $this->nb_Des; $i++) { 
-        //     $array_Une_Lance [] = rand(1, 6);
-        //     If ($array_Une_Lance[$i] !== 6){
-        //         echo "Il vous reste 2 lancées.";
-        //         // $stock = $stock + ($array_Une_Lance[$i]-1);
-        //         // unset($array_Une_Lance[$i]);
-        //     }else{
-        //         echo "Vous avez fait un CAPITAINE";
-        //         // $stock = $stock + ($array_Une_Lance[$i]-1);
-        //         // unset($array_Une_Lance[$i]);
-        //     }
-        // };
-        // echo "<pre>";
-        // print_r ($array_Une_Lance);
-        // echo "</pre>";
-        // echo $stock;
-
-        
-    //     $Dé = [1,2,3,4,5,6];
-    //     shuffle($Dé);
-    //    echo $result = $Dé[1];  
     }
 
 
